@@ -15,7 +15,7 @@ public class Anagram {
 		System.out.println("Enter Second String :");
 		String inputSecondString = scan.nextLine();
 
-		boolean isAnagram = isAnagram(inputFirstString, inputSecondString);
+		boolean isAnagram = isAnagram(inputFirstString.replaceAll("[^a-zA-Z0-9\\s+]", ""), inputSecondString.replaceAll("[^a-zA-Z0-9\\s+]", ""));
 	
 		System.out.printf("Is Input String %s and %s are Anagrams ? %b %n", inputFirstString, inputSecondString, isAnagram);
 
@@ -32,6 +32,8 @@ public class Anagram {
 			return false;
 		} else if (str1.length() == str2.length()) {
 			//First convert to lower case to ignore upper case and lower case difference
+			//remove speacial characters
+			
 			char[] firstString = str1.toLowerCase().toCharArray();
 			char[] secondString = str2.toLowerCase().toCharArray();
 			// sort arrays
